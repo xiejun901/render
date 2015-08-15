@@ -57,6 +57,8 @@ void close()
 }
 int main(int argc, char * argv[])
 {
+	bool quit = false;
+	SDL_Event e;
 	if (!init())
 	{
 		printf("Failed to initialize!\n");
@@ -71,9 +73,17 @@ int main(int argc, char * argv[])
 		else
 		{
 			//Apply the image
-			SDL_BlitSurface(gHelloWorld, NULL, gScreenSurface, NULL);
-			SDL_UpdateWindowSurface(gWindow);
-			SDL_Delay(12000);
+			while (!quit)
+			{
+				while (SDL_PollEvent(&e) != 0)
+				{
+					if (e.type == SDL_QUIT)
+						quit = true;
+						//printf("hahah");
+				}
+				SDL_BlitSurface(gHelloWorld, NULL, gScreenSurface, NULL);
+				SDL_UpdateWindowSurface(gWindow);
+			}
 		}
 	}
 	close();
