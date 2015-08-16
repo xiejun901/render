@@ -2,6 +2,9 @@
 #include<Windows.h>
 #include<stdio.h>
 
+
+#include "../src/window.h"
+
 const int SCREEN_WIDTH = 640;
 const int SCREEN_HEIGHT = 480;
 SDL_Window* gWindow = NULL;
@@ -55,37 +58,44 @@ void close()
 	gWindow = NULL;
 	SDL_Quit();
 }
+//int main(int argc, char * argv[])
+//{
+//	bool quit = false;
+//	SDL_Event e;
+//	if (!init())
+//	{
+//		printf("Failed to initialize!\n");
+//	}
+//	else
+//	{
+//		//Load media
+//		if (!loadMedia())
+//		{
+//			printf("Failed to load media!\n");
+//		}
+//		else
+//		{
+//			//Apply the image
+//			while (!quit)
+//			{
+//				while (SDL_PollEvent(&e) != 0)
+//				{
+//					if (e.type == SDL_QUIT)
+//						quit = true;
+//						//printf("hahah");
+//				}
+//				SDL_BlitSurface(gHelloWorld, NULL, gScreenSurface, NULL);
+//				SDL_UpdateWindowSurface(gWindow);
+//			}
+//		}
+//	}
+//	close();
+//	return 0;
+//}
+
 int main(int argc, char * argv[])
 {
-	bool quit = false;
-	SDL_Event e;
-	if (!init())
-	{
-		printf("Failed to initialize!\n");
-	}
-	else
-	{
-		//Load media
-		if (!loadMedia())
-		{
-			printf("Failed to load media!\n");
-		}
-		else
-		{
-			//Apply the image
-			while (!quit)
-			{
-				while (SDL_PollEvent(&e) != 0)
-				{
-					if (e.type == SDL_QUIT)
-						quit = true;
-						//printf("hahah");
-				}
-				SDL_BlitSurface(gHelloWorld, NULL, gScreenSurface, NULL);
-				SDL_UpdateWindowSurface(gWindow);
-			}
-		}
-	}
-	close();
+	window win(640, 480, "xx");
+	win.run();
 	return 0;
 }
