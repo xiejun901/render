@@ -58,76 +58,121 @@ void close()
 	gWindow = NULL;
 	SDL_Quit();
 }
+//int main(int argc, char * argv[])
+//{
+//	bool quit = false;
+//	SDL_Event e;
+//	if (!init())
+//	{
+//		printf("Failed to initialize!\n");
+//	}
+//	else
+//	{
+//		//Load media
+//		if (!loadMedia())
+//		{
+//			printf("Failed to load media!\n");
+//		}
+//		else
+//		{
+//			//Apply the image
+//			while (!quit)
+//			{
+//				while (SDL_PollEvent(&e) != 0)
+//				{
+//					if (e.type == SDL_QUIT)
+//					{
+//						quit = true;
+//						printf("你点了退出哟\n");
+//					}
+//					else if (e.type == SDL_KEYDOWN)
+//					{
+//						printf("你按键盘了哟\n");
+//						switch (e.key.keysym.sym)
+//						{
+//						case SDLK_UP:
+//							printf("你按了上哟\n");
+//							break;
+//						case SDLK_DOWN:
+//							printf("你按了下哟\n");
+//							break;
+//						case SDLK_LEFT:
+//							printf("你按了左哟\n");
+//							break;
+//						case SDLK_RIGHT:
+//							printf("你按了又哦\n");
+//							break;
+//						default:
+//							printf("你按的是其他的。。。。。。\n");
+//							break;
+//						}
+//					}
+//
+//				}
+//				SDL_Rect stretchRect;
+//				stretchRect.x = 0;
+//				stretchRect.y = 0;
+//				stretchRect.w = 320;
+//				stretchRect.h = 240;
+//
+//				SDL_Surface *optimizedSurface = SDL_ConvertSurface(gHelloWorld, gScreenSurface->format, NULL);
+//				SDL_BlitScaled(gHelloWorld, NULL, gScreenSurface, &stretchRect);
+//				SDL_UpdateWindowSurface(gWindow);
+//			}
+//		}
+//	}
+//	close();
+//	return 0;
+//}
+
 int main(int argc, char * argv[])
 {
-	bool quit = false;
-	SDL_Event e;
-	if (!init())
-	{
-		printf("Failed to initialize!\n");
-	}
-	else
-	{
-		//Load media
-		if (!loadMedia())
-		{
-			printf("Failed to load media!\n");
-		}
-		else
-		{
-			//Apply the image
-			while (!quit)
-			{
-				while (SDL_PollEvent(&e) != 0)
-				{
-					if (e.type == SDL_QUIT)
-					{
-						quit = true;
-						printf("你点了退出哟\n");
-					}
-					else if (e.type == SDL_KEYDOWN)
-					{
-						printf("你按键盘了哟\n");
-						switch (e.key.keysym.sym)
-						{
-						case SDLK_UP:
-							printf("你按了上哟\n");
-							break;
-						case SDLK_DOWN:
-							printf("你按了下哟\n");
-							break;
-						case SDLK_LEFT:
-							printf("你按了左哟\n");
-							break;
-						case SDLK_RIGHT:
-							printf("你按了又哦\n");
-							break;
-						default:
-							printf("你按的是其他的。。。。。。\n");
-							break;
-						}
-					}
-
-				}
-				SDL_Rect stretchRect;
-				stretchRect.x = 0;
-				stretchRect.y = 0;
-				stretchRect.w = 320;
-				stretchRect.h = 240;
-
-				SDL_Surface *optimizedSurface = SDL_ConvertSurface(gHelloWorld, gScreenSurface->format, NULL);
-				SDL_BlitScaled(gHelloWorld, NULL, gScreenSurface, &stretchRect);
-				SDL_UpdateWindowSurface(gWindow);
-			}
-		}
-	}
-	close();
+	window win(640, 480, "xx");
+	win.run();
 	return 0;
 }
 
 //int main(int argc, char * argv[])
 //{
-//	window win(640, 480, "xx");
-//	win.run();
+//	SDL_Window *sdlWindow = SDL_CreateWindow("xxxx",
+//											SDL_WINDOWPOS_UNDEFINED,
+//											SDL_WINDOWPOS_UNDEFINED,
+//											640,
+//											480,
+//											SDL_WINDOW_SHOWN);
+//	SDL_Renderer *sdlRenderer = SDL_CreateRenderer(sdlWindow, -1, 0);
+//	SDL_SetRenderDrawColor(sdlRenderer, 255, 255, 255, 255);
+//	SDL_RenderClear(sdlRenderer);
+//	SDL_RenderPresent(sdlRenderer);
+//	SDL_Surface *screen = SDL_CreateRGBSurface(0, 640, 480, 32,
+//		0x00FF0000,
+//		0x0000FF00,
+//		0x000000FF,
+//		0xFF000000);
+//	SDL_Texture *sdlTexture = SDL_CreateTexture(sdlRenderer,
+//												SDL_PIXELFORMAT_ARGB8888,
+//												SDL_TEXTUREACCESS_STREAMING,
+//												640, 480);
+//	for (int i = 0; i < 480 ; ++i)
+//	{
+//		int color;
+//		if (i < 100)
+//			color = 0x00FF0000;
+//		else if (i < 200)
+//			color = 0xFFFF0000;
+//		else if (i < 300)
+//			color = 0x000000FF;
+//		else
+//			color = 0xFFFF0000;
+//		for (int j = 0; j < 640; ++j)
+//		{
+//
+//			*((int *)screen->pixels + i * 640 + j) = color;
+//		}
+//	}
+//	SDL_UpdateTexture(sdlTexture, NULL, screen->pixels, screen->pitch);
+//	SDL_RenderClear(sdlRenderer);
+//	SDL_RenderCopy(sdlRenderer, sdlTexture, NULL, NULL);
+//	SDL_RenderPresent(sdlRenderer);
 //	return 0;
 //}
