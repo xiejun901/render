@@ -117,6 +117,8 @@ void window::clear()
 void window::draw()
 {
     canvas->test();
+    canvas->drawLine(0, 0, 100, 100);
+    canvas->drawLine(100, 100, 0, 100);
 }
 
 void window::show()
