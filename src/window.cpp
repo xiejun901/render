@@ -1,7 +1,7 @@
 #include<SDL.h>
 #include<string>
 #include "window.h"
-
+#include<stdio.h>
 window::window(int w, int h, std::string n) :width(w),
                                              height(h),
                                              name(n),
@@ -49,6 +49,7 @@ void window::run()
     bool quit = false;
     SDL_Event e;
     int k = 0;
+    canvas->clear();
     while (!_quit)
     {
         while (SDL_PollEvent(&e) != 0)
@@ -116,9 +117,9 @@ void window::clear()
 
 void window::draw()
 {
-    canvas->test();
-    canvas->drawLine(0, 0, 100, 100);
-    canvas->drawLine(100, 100, 0, 100);
+    //canvas->test();
+    canvas->testDraw();
+   
 }
 
 void window::show()

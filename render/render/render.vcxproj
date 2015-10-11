@@ -20,11 +20,19 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\Canvas.cpp" />
+    <ClCompile Include="..\..\src\graph_algothrims.cpp" />
+    <ClCompile Include="..\..\src\vertex.cpp" />
     <ClCompile Include="..\..\src\window.cpp" />
     <ClCompile Include="..\main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\Canvas.h" />
+    <ClInclude Include="..\..\src\Color.h" />
+    <ClInclude Include="..\..\src\graph_algothrims.h" />
+    <ClInclude Include="..\..\src\line.h" />
+    <ClInclude Include="..\..\src\triangle.h" />
+    <ClInclude Include="..\..\src\vector3.h" />
+    <ClInclude Include="..\..\src\vertex.h" />
     <ClInclude Include="..\..\src\window.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
